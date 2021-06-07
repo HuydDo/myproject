@@ -1,17 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
 
-const element = <h1>Hello</h1>;
+// jsx includes html-like syntax
+const myelement = <h1><u>These are the details of the myelement const</u></h1>;
+
+// Where the magic happens!
 ReactDOM.render(
-  
-  element,
-  document.getElementById('root')
+  myelement,
+  document.querySelector('#root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
