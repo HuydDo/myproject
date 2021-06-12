@@ -1,8 +1,10 @@
+// 07_Kintone_index.js | Frontend | Output backend's data in React
+
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-// Call Random User Generator API
-const restEndpoint = "https://randomuser.me/api/";
+// Switch the Endpoint from User Generator API's link to Express server's
+const restEndpoint = "http://localhost:5000/getData";
 
 const callRestApi = async () => {
   const response = await fetch(restEndpoint);
@@ -12,12 +14,8 @@ const callRestApi = async () => {
 };
 
 function RenderResult() {
-  // const [state, setState] = useState(initialState);
   const [apiResponse, setApiResponse] = useState("*** now loading ***");
 
-  // useEffect takes 2 arguments:
-  // 1st = effect is the function that is executed when the React Component is rendered
-  // 2nd = Empty array as dependency so useEffect is only invoked once
   useEffect(() => {
     callRestApi().then(
       result => setApiResponse(result));
@@ -37,7 +35,8 @@ ReactDOM.render(
 );
 
 /*
-Uses useState Hooks and useEffect Hooks to handle the async API call function
-Expected output: [Success!]
-Outputs the Random User API Call to the page
+frontend - React project side
+Display the API call made from the Express server to the frontend.
+Expected Output at http://localhost:3000/
+Display the API call to Kintone with the App's Data
 */
