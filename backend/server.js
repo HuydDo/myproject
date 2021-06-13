@@ -1,4 +1,4 @@
-// 06_Kintone_server.js | Backend | Get Kintone data
+// 08_Clean_server.js | Backend | Add a Query Parameters
 
 const express = require('express');
 const cors = require('cors');
@@ -17,7 +17,10 @@ const subdomain = ""; //Enter your Kintone Subdomain (ex: devevents)
 const appID = ""; //Enter your App's ID number (ex: 1)
 const apiToken = ""; //Enter your App's API Token
 
-const requestEndpoint = `https://${subdomain}.kintone.com/k/v1/records.json?app=${appID}`;
+// Append a Query Parameters to the Request Endpoint
+const parameters = "query=order by recordID asc";
+
+const requestEndpoint = `https://${subdomain}.kintone.com/k/v1/records.json?app=${appID}&${parameters}`;
 
 // This function runs if the http://localhost:5000/getData endpoint
 // is requested with a GET request
@@ -39,7 +42,7 @@ app.listen(PORT, () => {
 
 /*
 backend - Express server side
-Set up the Express code
+Added a Query Parameter to Kintone API Request Endpoint
 Expected Output at http://localhost:5000/getData
 Display the API call to Kintone with the App's Data
 */
